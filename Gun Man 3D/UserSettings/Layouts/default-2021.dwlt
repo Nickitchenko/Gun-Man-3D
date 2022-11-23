@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1366
     height: 685
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 44
+  controlID: 8754
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 45
+  controlID: 8755
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 46
+  controlID: 8756
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -339,7 +339,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -400,10 +400,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 113}
-      m_SelectedIDs: 68a6ffff
-      m_LastClickedID: -22936
-      m_ExpandedIDs: c6efffffc0f7ffff20f9ffff32fbffff166c0000586c00006e6c0000b26c0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 3c5a0000
+      m_LastClickedID: 23100
+      m_ExpandedIDs: dc85ffff90defffffcfaffff22fbffff32fbffff0e5a0000265a0000865a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -636,9 +636,9 @@ MonoBehaviour:
       floating: 1
       collapsed: 0
       displayed: 0
-      snapOffset: {x: -231, y: 143}
+      snapOffset: {x: -231, y: -197}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
+      snapCorner: 3
       id: Scene View/Particles
       index: 10
       layout: 4
@@ -652,9 +652,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -5.9515896, y: -21.049713, z: -26.4804}
+    m_Target: {x: 8.804454, y: -4.1308804, z: 11.543758}
     speed: 2
-    m_Value: {x: -5.95159, y: -21.049713, z: -26.4804}
+    m_Value: {x: 8.804454, y: -4.1308804, z: 11.543758}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -701,13 +701,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.7090467, y: 0.013023931, z: -0.012106264, w: -0.70496196}
+    m_Target: {x: -0.16077082, y: -0.4048723, z: 0.0725496, w: -0.8972002}
     speed: 2
-    m_Value: {x: -0.7090517, y: 0.011966265, z: -0.011042489, w: -0.70496845}
+    m_Value: {x: -0.16077077, y: -0.4048722, z: 0.07254958, w: -0.8972}
   m_Size:
-    m_Target: 27.661327
+    m_Target: 11.344415
     speed: 2
-    m_Value: 26.47017
+    m_Value: 11.344415
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -725,7 +725,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.7069415, y: -0.010276682, z: 0.0112637365, w: -0.70713174}
+  m_LastSceneViewRotation: {x: -0.4103639, y: 0.44064644, z: -0.23719652, w: -0.76234466}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -871,22 +871,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art/Font
+    - Assets/Prefabs/Players/EffectBullet
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Art/Font
+  - Assets/Prefabs/Players/EffectBullet
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\GitHub Projects\Gun-Man-3D\Gun Man 3D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 8e6b0000
-    m_LastClickedID: 27534
-    m_ExpandedIDs: 000000007c6b00007e6b0000806b0000826b000000ca9a3b
+    scrollPos: {x: 0, y: 120}
+    m_SelectedIDs: 686f0000
+    m_LastClickedID: 28520
+    m_ExpandedIDs: 00000000966b0000986b00009a6b00009c6b0000ba6b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -914,7 +914,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c6b00007e6b0000806b0000826b0000
+    m_ExpandedIDs: 00000000966b0000986b00009a6b00009c6b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1028,7 +1028,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 35656
+  m_LastSelectedObjectID: -17190
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52

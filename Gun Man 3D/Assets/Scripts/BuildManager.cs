@@ -20,6 +20,8 @@ public class BuildManager : MonoBehaviour
     public GameObject SoldierPrefab;
     public GameObject MissleTurretPrefab;
 
+    public GameObject buildEffect;
+
     private PlayerBluePrint playerToBuild;
 
     public bool CanBuild { get { return playerToBuild != null; } }
@@ -37,6 +39,9 @@ public class BuildManager : MonoBehaviour
 
         GameObject player = (GameObject)Instantiate(playerToBuild.prefab, platform.GetBuildPosition(), Quaternion.identity);
         platform.player = player;
+
+        GameObject effect = (GameObject)Instantiate(buildEffect, platform.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
 
         Debug.Log("Player build! Money left: " + PlayerStats.Money);
     }
