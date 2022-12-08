@@ -16,10 +16,6 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject GunManPrefab;
-    public GameObject SoldierPrefab;
-    public GameObject MissleTurretPrefab;
-
     public GameObject buildEffect;
 
     private PlayerBluePrint playerToBuild;

@@ -7,6 +7,7 @@ public class Shop : MonoBehaviour
     public PlayerBluePrint GunMan;
     public PlayerBluePrint Soldier;
     public PlayerBluePrint MissleTurret;
+    public PlayerBluePrint LazerBeamer;
 
     BuildManager buildManager;
 
@@ -29,4 +30,10 @@ public class Shop : MonoBehaviour
     {
         buildManager.SelectPlayerToBuild(MissleTurret);
     }
+
+    public void SelectLazerBeamer()
+    {
+        buildManager.SelectPlayerToBuild(LazerBeamer);
+    }
+
 }

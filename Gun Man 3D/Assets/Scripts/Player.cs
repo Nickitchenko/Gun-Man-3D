@@ -5,21 +5,35 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Transform target; //target of shooting
+    private Enemy targetEnemy;
 
-    [Header("Attributes")]
+    [Header("General")]
 
     public float range; //range of player shooting
+
+    [Header("Use Bullets (default)")]
+    public GameObject bulletPrefab;
     public float fireRate; //cd of shooting
     private float fireCountDown = 0f;
 
-    [Header("AUnity Setup Fields")]
+    [Header("Use Lazer")]
+
+    public bool useLazer = false;
+
+    public int damageOverTime;
+    public float slowAmount;
+
+    public LineRenderer lineRenderer;
+    public ParticleSystem impactEffect;
+    public Light impactLight;
+
+    [Header("Unity Setup Fields")]
 
     public Transform partToRotate;//part of body to rotate player
 
     public float turnSpeed; //speed of rotate
     public string enemyTag = "Enemy"; //tag for target to shooting
 
-    public GameObject bulletPrefab;
     public Transform firePoint;
 
     private void Start()
@@ -47,6 +61,7 @@ public class Player : MonoBehaviour
         if(nearestEnemy!=null && shortestDistance<=range)
         {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
         }
         else
         {
@@ -56,22 +71,66 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            if(useLazer)
+            {
+                if (lineRenderer.enabled)
+                {
+                    lineRenderer.enabled = false;
+                    impactEffect.Stop();
+                    impactLight.enabled = false;
+                }
+            }
+            return;
+        }
 
-        //rotation to target position
+        LockOnTarget();
+
+        if (useLazer)
+        {
+            Laser();
+        }
+        else
+        {
+            //shoot
+            if (fireCountDown <= 0f)
+            {
+                Shoot();
+                fireCountDown = 1f / fireRate;
+            }
+
+            fireCountDown -= Time.deltaTime;
+        }
+    }
+
+    void LockOnTarget()
+    {
         Vector3 dir = target.position - transform.position; //point to look rotation
         Quaternion lookRotation = Quaternion.LookRotation(dir); //vector of lookrotation
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;//rotate player in turnspeed to needrotation
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); //rotation of player to rotation target
+    }
 
-        //shoot
-        if (fireCountDown<=0f)
+    void Laser()
+    {
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.Slow(slowAmount);
+        //Grafic part of damage
+        if (!lineRenderer.enabled)
         {
-            Shoot();
-            fireCountDown = 1f / fireRate;
+            lineRenderer.enabled = true;
+            impactEffect.Play();
+            impactLight.enabled = true;
         }
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
 
-        fireCountDown -= Time.deltaTime;
+        Vector3 dir = firePoint.position - target.position;
+
+        impactEffect.transform.position = target.position + dir.normalized;
+
+        impactEffect.transform.rotation = Quaternion.LookRotation(dir);
     }
 
     private void OnDrawGizmosSelected()
