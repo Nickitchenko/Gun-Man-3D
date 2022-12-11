@@ -8,5 +8,6 @@ public class PlayerBluePrint
     public GameObject prefab;
     public int cost;
 
-
+    public GameObject upgradedPrefab;
+    public int upgradeCost;
 }

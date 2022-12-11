@@ -8,7 +8,7 @@ public class BuildManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance!=null)
+        if (instance != null)
         {
             Debug.LogError("More than one BuildManager in scene!");
             return;
@@ -19,31 +19,41 @@ public class BuildManager : MonoBehaviour
     public GameObject buildEffect;
 
     private PlayerBluePrint playerToBuild;
+    private Platform selectedPlatform;
+
+    public NodeUI nodeUI;
 
     public bool CanBuild { get { return playerToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= playerToBuild.cost; } }
 
-    public void BuildPlayerOn(Platform platform)
+    public void SelectPlatform(Platform platform)
     {
-        if(PlayerStats.Money<playerToBuild.cost)
+        if (selectedPlatform == platform)
         {
-            Debug.Log("Not enough money to build that!");
+            DeselectPlatform();
             return;
         }
 
-        PlayerStats.Money -= playerToBuild.cost;
+        selectedPlatform = platform;
+        playerToBuild = null;
 
-        GameObject player = (GameObject)Instantiate(playerToBuild.prefab, platform.GetBuildPosition(), Quaternion.identity);
-        platform.player = player;
+        nodeUI.SetTarget(platform);
+    }
 
-        GameObject effect = (GameObject)Instantiate(buildEffect, platform.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-
-        Debug.Log("Player build! Money left: " + PlayerStats.Money);
+    public void DeselectPlatform()
+    {
+        selectedPlatform = null;
+        nodeUI.Hide();
     }
 
     public void SelectPlayerToBuild(PlayerBluePrint player)
     {
         playerToBuild = player;
+        DeselectPlatform();
+    }
+
+    public PlayerBluePrint GetPlayerToBuild()
+    {
+        return playerToBuild;
     }
 }
