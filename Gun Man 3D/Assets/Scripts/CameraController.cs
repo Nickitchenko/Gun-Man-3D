@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private bool DoMovement = true;
-
     public float panSpeed;
     public float panBorderThickness;
 
@@ -28,13 +26,6 @@ public class CameraController : MonoBehaviour
             this.enabled = false;
             return;
         }
-
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            DoMovement = !DoMovement;
-        }
-
-        if (!DoMovement) return;
 
         if(Input.GetKey("w") || Input.mousePosition.y>=Screen.height - panBorderThickness) //up camera move
         {

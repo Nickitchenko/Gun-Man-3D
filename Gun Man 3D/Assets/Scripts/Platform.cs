@@ -95,6 +95,16 @@ public class Platform : MonoBehaviour
         Debug.Log("Player build!");
     }
 
+    public void SellPlayer()
+    {
+        PlayerStats.Money += playerBluePrint.GetSellAmount();
+
+        //Spawn cool effect
+
+        Destroy(player);
+        playerBluePrint = null;
+    }
+
     private void OnMouseEnter()
     {
         if (EventSystem.current.IsPointerOverGameObject()) { return; }
