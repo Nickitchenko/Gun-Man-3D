@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int wavepointIndex = 0;
     private Enemy enemy;
+    public GameObject PartToRotate; // part to rotate enemy while its move to next waypoints
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
         {
             GetNextWaePoint();
         }
-        transform.LookAt(target);
+        PartToRotate.transform.LookAt(target);
 
 
         enemy.speed = enemy.startSpeed;
